@@ -38,9 +38,10 @@
 }
 
 .app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
 }
 
 .form-container > * + * {
@@ -64,4 +65,17 @@ button[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.output-container {
+  width: 80%;
+  height: 100%;
+  padding: 16px;
+  border: 2px dashed #ccc;
+  background-color: #282c34;
+  color: white
+}
+
+.output-div {
+  display:block;
 }

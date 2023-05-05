@@ -7,6 +7,7 @@ import Subject from './components/Subject';
 import Quantity from './components/Quantity';
 import SubSubject from './components/SubSubject';
 import Language from './components/Languages';
+import Output from './components/Output';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ function App() {
     quantity: 0,
     language: "",
   });
+
+  const [apiAnswer, setApiAnswer] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -54,6 +57,7 @@ function App() {
       if (response.ok) {
         // La petición se realizó correctamente
         const responseData = await response.json();
+        setApiAnswer(responseData);
         console.log("Formulario enviado correctamente");
         console.log(responseData)
       } else {
@@ -134,6 +138,7 @@ function App() {
           onChange={handleInputChange}
         />
       </FormComponent>
+      <Output answer={apiAnswer}/>
     </div>
   );
 }
